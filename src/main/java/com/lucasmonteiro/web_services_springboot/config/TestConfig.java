@@ -10,6 +10,7 @@ import org.springframework.context.annotation.Profile;
 
 import com.lucasmonteiro.web_services_springboot.entities.Order;
 import com.lucasmonteiro.web_services_springboot.entities.User;
+import com.lucasmonteiro.web_services_springboot.entities.enums.OrderStatus;
 import com.lucasmonteiro.web_services_springboot.repositories.OrderRepository;
 import com.lucasmonteiro.web_services_springboot.repositories.UserRepository;
 
@@ -31,9 +32,9 @@ public class TestConfig implements CommandLineRunner {
 		
 		userRepository.saveAll(Arrays.asList(user1, user2));
 		
-		Order order1 = new Order(null, Instant.parse("2021-01-21T09:15:57Z"), user1);
-		Order order2 = new Order(null, Instant.parse("2021-01-20T19:31:15Z"), user2);
-		Order order3 = new Order(null, Instant.parse("2021-01-19T21:12:13Z"), user1);
+		Order order1 = new Order(null, Instant.parse("2021-01-21T09:15:57Z"), OrderStatus.PAID, user1);
+		Order order2 = new Order(null, Instant.parse("2021-01-20T19:31:15Z"), OrderStatus.WAITING_PAYMENT, user2);
+		Order order3 = new Order(null, Instant.parse("2021-01-19T21:12:13Z"), OrderStatus.WAITING_PAYMENT, user1);
 		
 		orderRepository.saveAll(Arrays.asList(order1, order2, order3));
 		
