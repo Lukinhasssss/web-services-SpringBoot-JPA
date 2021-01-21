@@ -13,7 +13,7 @@ import com.lucasmonteiro.web_services_springboot.entities.Category;
 import com.lucasmonteiro.web_services_springboot.services.CategoryService;
 
 @RestController
-@RequestMapping(value = "categories")
+@RequestMapping(value = "/categories")
 public class CategoryResource {
 	
 	@Autowired
